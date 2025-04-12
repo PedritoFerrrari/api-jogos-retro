@@ -13,7 +13,8 @@ CREATE TABLE jogos (
         'Xbox Series X', 
         'Nintendo Switch', 
         'PC', 
-        'PlayStation 4'
+        'PlayStation 4',
+        'PSP'
     ) NOT NULL,
     ano_lancamento DATE
 );

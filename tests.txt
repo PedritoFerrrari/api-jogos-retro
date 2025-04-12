@@ -1,0 +1,7 @@
+Json de testes para API de Jogos
+
+{
+    "nome": "Hatsune Miku: Project Diva",
+    "plataforma": "PSP",
+    "ano_lancamento": "2011-11-10"
+}

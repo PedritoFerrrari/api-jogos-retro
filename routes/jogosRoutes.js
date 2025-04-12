@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { dataValida } = require('../utils')
+const { validarData } = require('../utils')
 const connection = require("../config/db");
 
 const plataformasAceitas = [
@@ -11,7 +11,8 @@ const plataformasAceitas = [
     'Xbox Series X',
     'Nintendo Switch',
     'PC',
-    'PlayStation 4'
+    'PlayStation 4',
+    'PSP'
 ]
 
 
@@ -28,17 +29,17 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    const { nome, plataforma, anoLancamento } = req.body;
+    const { nome, plataforma, ano_lancamento } = req.body;
 
-    let error = "";
-    error = validarDados(plataforma, anoLancamento);
+    let error = validarDados(plataforma, ano_lancamento);
 
+    console.log(error != "");
     if (error != "") {
         return res.status(400).send(error);
     }
 
     const sql = "INSERT INTO jogos (nome, plataforma, ano_lancamento) VALUES (?, ?, ?)";
-    connection.query(sql, [nome, plataforma, anoLancamento], (err, results) => {
+    connection.query(sql, [nome, plataforma, ano_lancamento], (err, results) => {
         if (err) {
             res.status(500).send("Erro ao criar um jogo");
             return;
@@ -49,17 +50,16 @@ router.post("/", (req, res) => {
 
 router.put("/:id", (req, res) => {
     const { id } = req.params;
-    const { nome, plataforma, anoLancamento } = req.body;
+    const { nome, plataforma, ano_lancamento } = req.body;
 
-    let error = "";
-    error = validarDados(plataforma, anoLancamento);
+    let error = validarDados(plataforma, ano_lancamento);
 
     if (error != "") {
         return res.status(400).send(error);
     }
 
-    const sql = "UPDATE jogos SET nome = ?, plataforma = ? anoLancamento = ? WHERE id = ?";
-    connection.query(sql, [nome, plataforma, anoLancamento, id], (err, results) => {
+    const sql = "UPDATE jogos SET nome = ?, plataforma = ? ano_lancamento = ? WHERE id = ?";
+    connection.query(sql, [nome, plataforma, ano_lancamento, id], (err, results) => {
         if (err) {
             res.status(500).send("Erro ao atualizar o jogo");
             return;
@@ -95,9 +95,11 @@ function validarDados(plataforma, data) {
         return "Plataforma inválida. Escolha uma plataforma válida.";
     }
 
-    if (!dataValida(data)) {
-        return "Data inválida.";
+    if (!validarData (data)) {
+        return "Data inválida. Use o formato YYYY-MM-DD.";
     }
+
+    return "";
 }
 
 module.exports = router;

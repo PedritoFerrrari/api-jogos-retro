@@ -53,3 +53,16 @@ INSERT INTO jogos (nome, plataforma, ano_lancamento) VALUES
 ('The Legend of Zelda: Breath of the Wild', 'Nintendo Switch', '2017-03-03'),
 ('Cyberpunk 2077', 'PC', '2020-12-10'),
 ('Spider-Man: Miles Morales', 'PlayStation 5', '2020-11-12');
+
+
+INSERT INTO players (nome, nickname) VALUES
+('Lucas Andrade', 'Lukezera'),
+('Ana Beatriz', 'AninhaGamer'),
+('Carlos Eduardo', 'CaduFPS'),
+('Juliana Ramos', 'JuliTech'),
+('Marcos Silva', 'Marquinhos'),
+('Fernanda Oliveira', 'FefeKills'),
+('Roberto Lima', 'BobSniper'),
+('Isabela Costa', 'IsaFire'),
+('Thiago Souza', 'Thigz'),
+('Camila Rocha', 'Cam1la');

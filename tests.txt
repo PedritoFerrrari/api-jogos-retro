@@ -1,7 +1,14 @@
-Json de testes para API de Jogos
+Json de testes para rota de Jogos
 
 {
     "nome": "Hatsune Miku: Project Diva",
     "plataforma": "PSP",
     "ano_lancamento": "2011-11-10"
+}
+
+Json de testes para rota de Jogadores
+
+{
+    "nome": "Pedro Ferrari",
+    "nickname": "pedritoFerrari"
 }

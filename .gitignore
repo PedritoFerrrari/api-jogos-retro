@@ -22,3 +22,6 @@ coverage/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+package.json
+package-lock.json

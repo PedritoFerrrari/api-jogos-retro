@@ -12,3 +12,12 @@ Json de testes para rota de Jogadores
     "nome": "Pedro Ferrari",
     "nickname": "pedritoFerrari"
 }
+
+Json de testes para rota de pontuacoes
+
+{
+    "id_jogo": "8", 
+    "id_player": "1",
+    "pontuacao": 200,
+    "data_registro": "2011-01-01" 
+}

@@ -14,8 +14,6 @@ function validarData(data) {
            dataValida.getDate() === parseInt(dia);
 }
 
-
-
 module.exports = {
     validarData
 };
